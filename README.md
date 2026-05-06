@@ -26,27 +26,24 @@ Docker Sandboxes (sbx) does not offer a ready-to-use template for the Pi agent. 
 3. Build and run the sandbox
 
 	```console
-	# Kit in a local folder
 	sbx run --name my-sandbox-name --kit ./sbx-shell-pi pi path/to/my/project
 	```
 	or
 	
 	```console
-	# Fetch the kit from GitHub
 	sbx run --name my-sandbox-name --kit "git+https://github.com/MapuH/sbx-shell-pi" pi path/to/my/project
 	```
 
 ## Configuration
 
 ```console
-sbx-shell-pi
-│   LICENSE
-│   README.md
-│   spec.yaml
-│
-└───files/home/.pi/agent
-			APPEND_SYSTEM.md
-			settings.json
+sbx-shell-pi/
+├── LICENSE
+├── README.md
+├── spec.yaml
+└── files/home/.pi/agent/
+    ├── APPEND_SYSTEM.md
+    └── settings.json
 ```
 
 ### spec.yaml
