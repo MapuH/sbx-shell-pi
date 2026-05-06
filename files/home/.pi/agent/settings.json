@@ -1,0 +1,8 @@
+{
+  "enabledModels": [
+    "opencode/minimax-m2.5-free",
+    "opencode/hy3-preview-free",
+    "opencode/nemotron-3-super-free",
+    "opencode/big-pickle"
+  ]
+}

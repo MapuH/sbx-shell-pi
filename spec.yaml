@@ -1,0 +1,45 @@
+schemaVersion: "1"
+kind: agent
+name: pi
+displayName: Pi
+description: Minimal terminal coding harness
+
+agent:
+  image: "docker/sandbox-templates:shell"
+  persistence: persistent
+  # entrypoint:
+    # run: [pi]
+
+network:
+  serviceDomains:
+    pi.dev: pi
+    opencode.ai: opencode
+    # chatgpt.com: openai
+  allowedDomains:
+    - "pi.dev:443"
+    - "opencode.ai:443"
+    # - "chatgpt.com:443"
+
+# credentials:
+#    sources:
+#        openai:
+#            env:
+#                - OPENAI_API_KEY
+
+environment:
+    variables:
+        OPENCODE_API_KEY: sk-opencode
+#    proxyManaged:
+#        - OPENAI_API_KEY
+
+commands:
+  install:
+    - command: "apt-get update && apt-get install -y curl ca-certificates gnupg python3 python3-venv python3-pip python3-dev build-essential git pkg-config nano"
+    - command: "curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR='/usr/local/bin' UV_NO_MODIFY_PATH='1' sh"
+    - command: "curl -fsSL https://pi.dev/install.sh | sh"
+      user: "1000"
+      description: Install Pi
+    - command: "printf \"\\nexport TERM=xterm-256color\\n\" >> ~/.bashrc"
+      user: "1000"
+    - command: "printf \"\\n# A more interesting colorful prompt\\nPS1='\\[\\033[38;5;135m\\]\\u\\[\\033[0m\\]@\\[\\033[38;5;166m\\]\\h\\[\\033[0m\\]:\\[\\033[38;5;118m\\]\\W\\[\\033[0m\\]\\$ '\\n\" >> ~/.bashrc"
+      user: "1000"
