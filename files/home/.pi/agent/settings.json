@@ -4,5 +4,28 @@
     "opencode/hy3-preview-free",
     "opencode/nemotron-3-super-free",
     "opencode/big-pickle"
-  ]
+  ],
+  "packages": [
+    "git:github.com/elpapi42/pi-observational-memory",
+    "git:github.com/daynin/nano-context",
+    "git:github.com/nicobailon/pi-subagents"
+  ],
+  "observational-memory": {
+    "observationThresholdTokens": 1000,
+    "compactionThresholdTokens": 90000,
+    "reflectionThresholdTokens": 30000,
+    "passive": false
+  },
+  "compaction": {
+    "keepRecentTokens": 20000
+  },
+  "subagents": {
+    "agentOverrides": {
+      "researcher": {"disabled": true},
+      "planner": {"disabled": true},
+      "reviewer": {"disabled": true},
+      "context-builder": {"disabled": true},
+      "oracle": {"disabled": true}
+    }
+  }
 }

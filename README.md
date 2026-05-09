@@ -43,7 +43,10 @@ sbx-shell-pi/
 ├── spec.yaml
 └── files/home/.pi/agent/
     ├── APPEND_SYSTEM.md
-    └── settings.json
+    ├── settings.json
+	└── agents/
+		├── scout.md
+    	└── worker.md
 ```
 
 ### spec.yaml
@@ -63,6 +66,8 @@ sbx-shell-pi/
 - **APPEND_SYSTEM.md** - the [sbx docs](https://docs.docker.com/ai/sandboxes/customize/kits/#memory) recommend to use a `memory` block to append to the agent's memory file at sandbox creation. However, I prefer to inject a file and use Pi's native functionality. This way instructions will be appended directly to the system prompt instead of `AGENTS.md`.
 
 - **settings.json** - you can save your global Pi settings here, so you don't have to configure the agent every time the sandbox is re-created.
+
+- **agents** - the kit includes two example agents: `scout` for codebase reconnaissance and `worker` for implementation. You can modify these or add your own.
 
 ## License
 [MIT License](LICENSE)

@@ -39,7 +39,9 @@ commands:
     - command: "curl -fsSL https://pi.dev/install.sh | sh"
       user: "1000"
       description: Install Pi
-    - command: "printf \"\\nexport TERM=xterm-256color\\n\" >> ~/.bashrc"
+    - command: |
+        printf "\nexport TERM=xterm-256color\n" >> ~/.bashrc && \
+        printf "\n# Enable color support for ls and grep\nalias ls='ls --color=auto'\nalias grep='grep --color=auto'\nalias ll='ls -alF'\nalias la='ls -A'\nalias l='ls -CF'\n" >> ~/.bashrc && \
+        printf "\n# A more interesting colorful prompt\nPS1='\\[\\033[38;5;135m\\]\\u\\[\\033[0m\\]@\\[\\033[38;5;166m\\]\\h\\[\\033[0m\\]:\\[\\033[38;5;118m\\]\\W\\[\\033[0m\\]\\$ '\n" >> ~/.bashrc
       user: "1000"
-    - command: "printf \"\\n# A more interesting colorful prompt\\nPS1='\\[\\033[38;5;135m\\]\\u\\[\\033[0m\\]@\\[\\033[38;5;166m\\]\\h\\[\\033[0m\\]:\\[\\033[38;5;118m\\]\\W\\[\\033[0m\\]\\$ '\\n\" >> ~/.bashrc"
-      user: "1000"
+      description: Configure terminal with colors and a nice prompt
