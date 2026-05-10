@@ -29,13 +29,19 @@ network:
 environment:
     variables:
         OPENCODE_API_KEY: sk-opencode
+        GITLAB_TOKEN: glpat-secret
 #    proxyManaged:
 #        - OPENAI_API_KEY
 
 commands:
   install:
     - command: "apt-get update && apt-get install -y curl ca-certificates gnupg python3 python3-venv python3-pip python3-dev build-essential git pkg-config nano"
-    - command: "curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR='/usr/local/bin' UV_NO_MODIFY_PATH='1' sh"
+    - command: |
+        curl -sSL "https://raw.githubusercontent.com/upciti/wakemeops/main/assets/install_repository" | sudo bash
+    - command: "sudo apt install glab"
+    - command: |
+        curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR="/usr/local/bin" UV_NO_MODIFY_PATH="1" sh
+      description: Install uv
     - command: "curl -fsSL https://pi.dev/install.sh | sh"
       user: "1000"
       description: Install Pi
