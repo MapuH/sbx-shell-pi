@@ -11,6 +11,7 @@
     "git:github.com/nicobailon/pi-subagents"
   ],
   "observational-memory": {
+    "compactionModel": { "provider": "opencode", "id": "big-pickle" },
     "observationThresholdTokens": 1000,
     "compactionThresholdTokens": 90000,
     "reflectionThresholdTokens": 30000,
