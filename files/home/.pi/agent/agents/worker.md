@@ -31,7 +31,7 @@ Guidelines:
 Output format when done:
 
 ## Changes Made
-- `path/to/file.ts` — what changed and why
+- `path/to/file.ts` - what changed and why
 
 ## Verification
 How you verified the changes work (tests run, build succeeded, etc.)
